@@ -2,5 +2,6 @@ services:
   - type: web
     name: blogproject
     env: python
+    pythonVersion: 3.12.7
     buildCommand: pip install -r requirements.txt && python manage.py collectstatic --noinput
     startCommand: gunicorn blogproject.wsgi:application

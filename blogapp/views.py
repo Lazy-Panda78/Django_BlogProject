@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Post
 from .forms import PostForm
@@ -47,5 +47,5 @@ def signup(request):
     return render(request, 'blogapp/signup.html', {'form': form})
 
 def post_detail(request, id):
-    post = Post.objects.get(id=id)
+    post = get_object_or_404(Post, id=id)
     return render(request, 'blogapp/post_detail.html', {'post': post})
