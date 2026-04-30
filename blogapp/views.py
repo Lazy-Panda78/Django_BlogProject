@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Post
@@ -49,3 +50,7 @@ def signup(request):
 def post_detail(request, id):
     post = get_object_or_404(Post, id=id)
     return render(request, 'blogapp/post_detail.html', {'post': post})
+
+
+def healthz(request):
+    return HttpResponse('ok', content_type='text/plain')
