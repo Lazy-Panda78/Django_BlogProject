@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block body %}
+<section class="content">
+    <div class="section-header">
+        <div>
+            <span class="eyebrow">Welcome back</span>
+            <h2 class="section-title">Login</h2>
+            <p class="section-subtitle">Continue writing, publishing, and managing your posts.</p>
+        </div>
+    </div>
+
+    <div class="auth-card">
+        <div class="auth-body">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="button" type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock body %}

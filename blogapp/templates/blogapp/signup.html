@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block body %}
+<section class="content">
+    <div class="section-header">
+        <div>
+            <span class="eyebrow">Join the platform</span>
+            <h2 class="section-title">Create your account</h2>
+            <p class="section-subtitle">Set up your profile, then start publishing posts from a better-looking editor.</p>
+        </div>
+    </div>
+
+    <div class="auth-card">
+        <div class="auth-body">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="button" type="submit">Sign up</button>
+            </form>
+            <p style="margin-top: 18px; color: var(--muted);">Already have an account? <a class="link-arrow" href="{% url 'login' %}">Login here</a>.</p>
+        </div>
+    </div>
+</section>
+{% endblock body %}

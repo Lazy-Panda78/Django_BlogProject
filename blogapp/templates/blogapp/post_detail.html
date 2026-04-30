@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block body %}
+<section class="content detail-grid">
+    <article class="detail-card">
+        <div class="detail-body">
+            <span class="eyebrow">Article view</span>
+            <h1>{{ post.title }}</h1>
+            <div class="meta">
+                <span>By {{ post.author }}</span>
+                <span>{{ post.created_at|date:"M d, Y" }}</span>
+            </div>
+
+            {% if post.image %}
+                <div class="detail-image">
+                    <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                </div>
+            {% endif %}
+
+            <div style="margin-top: 22px;">
+                <p class="detail-copy">{{ post.content }}</p>
+            </div>
+
+            <div class="card-actions" style="margin-top: 26px;">
+                <a class="pill" href="{% url 'home' %}">Back to feed</a>
+            </div>
+        </div>
+    </article>
+
+    <aside class="mini-card">
+        <strong style="display:block; font-size: 1.05rem; margin-bottom: 10px;">Post details</strong>
+        <p style="margin: 0; color: var(--muted); line-height: 1.7;">This layout keeps the reading area wide and calm while still showing the article metadata and a strong visual block for the image.</p>
+    </aside>
+</section>
+{% endblock body %}
